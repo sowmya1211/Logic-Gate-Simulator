@@ -3,13 +3,22 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.JLabel;
-
+import javax.swing.JButton;
+import javax.swing.border.Border;
+import graphics.FirstScreenButton.*;
 public class MyFrame extends JFrame implements ActionListener
 {
     JLabel titleLabel;
-	JButton ANDbutton;
-    JButton ORbutton,NOTbutton,NANDbutton,NORbutton,XORbutton;
+	/*JButton ANDbutton;
+    JButton ORbutton,NOTbutton;*/
   //JFrame frame = new JFrame();//creates a frame
+
+    ANDbutton andbutton = new ANDbutton();
+	ORbutton orbutton = new ORbutton();
+	NOTbutton notbutton = new NOTbutton();
+	NANDbutton nandbutton = new NANDbutton();
+	NORbutton norbutton = new NORbutton();
+	EXORbutton exorbutton = new EXORbutton();
     public MyFrame()
     {	
 		//Border border = BorderFactory.createLineBorder(Color.green,3);
@@ -34,148 +43,68 @@ public class MyFrame extends JFrame implements ActionListener
 		//titleLabelsetBorder(border); //sets border of label (not image+text)
 		titleLabel.setVerticalAlignment(JLabel.CENTER); //set vertical position of icon+text within label
 		titleLabel.setHorizontalAlignment(JLabel.CENTER); //set horizontal position of icon+text within label
-		titleLabel.setBounds(125, 65, 250, 20); //set x,y position within frame as well as dimensions
-       
-		ORbutton = new JButton();
-		ORbutton.setBounds(200, 100, 100, 30);
-		ORbutton.addActionListener(this);
-		ORbutton.setText("OR");
+		titleLabel.setBounds(150, 65, 250, 20); //set x,y position within frame as well as dimension
 
-        ANDbutton = new JButton();
-		ANDbutton.setBounds(200, 150, 100, 30);
-		ANDbutton.addActionListener(this);
-		ANDbutton.setText("AND");       
-		
-		NOTbutton = new JButton();
-		NOTbutton.setBounds(200, 200, 100, 30);
-		NOTbutton.addActionListener(this);
-		NOTbutton.setText("NOT");  
-
-		NANDbutton = new JButton();
-		NANDbutton.setBounds(200, 250, 100, 30);
-		NANDbutton.addActionListener(this);
-		NANDbutton.setText("NAND");  
-
-		NORbutton = new JButton();
-		NORbutton.setBounds(200, 300, 100, 30);
-		NORbutton.addActionListener(this);
-		NORbutton.setText("NOR");  
-
-		XORbutton = new JButton();
-		XORbutton.setBounds(200, 350, 100, 30);
-		XORbutton.addActionListener(this);
-		XORbutton.setText("XOR");
-
-		ANDbutton.setFocusable(false);
-		ANDbutton.setHorizontalTextPosition(JButton.LEFT);
-		ANDbutton.setVerticalTextPosition(JButton.BOTTOM);
-		ANDbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		ANDbutton.setIconTextGap(-15);
-		ANDbutton.setForeground(Color.BLACK);
-		ANDbutton.setBackground(Color.lightGray);
-		ANDbutton.setBorder(BorderFactory.createEtchedBorder());
-
-        ORbutton.setFocusable(false);
-		ORbutton.setHorizontalTextPosition(JButton.CENTER);
-		ORbutton.setVerticalTextPosition(JButton.BOTTOM);
-		ORbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		ORbutton.setIconTextGap(-15);
-		ORbutton.setForeground(Color.black);
-		ORbutton.setBackground(Color.lightGray);
-		ORbutton.setBorder(BorderFactory.createEtchedBorder());     
-		
-		NOTbutton.setFocusable(false);
-		NOTbutton.setHorizontalTextPosition(JButton.LEFT);
-		NOTbutton.setVerticalTextPosition(JButton.BOTTOM);
-		NOTbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		NOTbutton.setIconTextGap(-15);
-		NOTbutton.setForeground(Color.BLACK);
-		NOTbutton.setBackground(Color.lightGray);
-		NOTbutton.setBorder(BorderFactory.createEtchedBorder());
-
-		NORbutton.setFocusable(false);
-		NORbutton.setHorizontalTextPosition(JButton.LEFT);
-		NORbutton.setVerticalTextPosition(JButton.BOTTOM);
-		NORbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		NORbutton.setIconTextGap(-15);
-		NORbutton.setForeground(Color.BLACK);
-		NORbutton.setBackground(Color.lightGray);
-		NORbutton.setBorder(BorderFactory.createEtchedBorder());
-
-		NANDbutton.setFocusable(false);
-		NANDbutton.setHorizontalTextPosition(JButton.LEFT);
-		NANDbutton.setVerticalTextPosition(JButton.BOTTOM);
-		NANDbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		NANDbutton.setIconTextGap(-15);
-		NANDbutton.setForeground(Color.BLACK);
-		NANDbutton.setBackground(Color.lightGray);
-		NANDbutton.setBorder(BorderFactory.createEtchedBorder());
-		
-		XORbutton.setFocusable(false);
-		XORbutton.setHorizontalTextPosition(JButton.LEFT);
-		XORbutton.setVerticalTextPosition(JButton.BOTTOM);
-		XORbutton.setFont(new Font("Times New Roman",Font.BOLD,15));
-		XORbutton.setIconTextGap(-15);
-		XORbutton.setForeground(Color.BLACK);
-		XORbutton.setBackground(Color.lightGray);
-		XORbutton.setBorder(BorderFactory.createEtchedBorder());
-		
+		andbutton.addActionListener(this);
+		orbutton.addActionListener(this);
+		notbutton.addActionListener(this);
+		nandbutton.addActionListener(this);
+		norbutton.addActionListener(this);
+		exorbutton.addActionListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		this.setSize(500,500);
+		this.setSize(750,500);
 		this.setVisible(true);
-		this.add(NOTbutton);
-        this.add(ORbutton);
-		this.add(ANDbutton);
-		this.add(NANDbutton);
-		this.add(NORbutton);
+		this.add(andbutton);
+        this.add(orbutton);
+		this.add(notbutton);
+		this.add(nandbutton);
+		this.add(norbutton);
+		this.add(exorbutton);
 		this.add(titleLabel);
+		//this.pack();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) 
     {
-		if(e.getSource()==ANDbutton) 
+		if(e.getSource()==andbutton) 
         {
-			System.out.println("choice1");
-			ANDbutton.setEnabled(false);
+			System.out.println("Choice 1- AND implementation");
+			andbutton.setEnabled(false);
 			System.out.println("AND chosen");
-			this.dispose();
-			NewWindow myWindow = new NewWindow();
+			NewWindow window = new NewWindow();
 		}	
-        if(e.getSource()==ORbutton) 
+        if(e.getSource()==orbutton) 
         {
-			System.out.println("choice 2");
-			ORbutton.setEnabled(false);
+			System.out.println("Choice 2- OR implementation");
+			orbutton.setEnabled(false);
 			System.out.println("OR chosen");
 		}	
-		if(e.getSource()==NOTbutton) 
+		if(e.getSource()==notbutton) 
         {
-			System.out.println("choice 3");
-			NOTbutton.setEnabled(false);
+			System.out.println("Choice 3- NOT implementation");
+			notbutton.setEnabled(false);
 			System.out.println("NOT chosen");
 		}	
-		if(e.getSource()==NANDbutton) 
+		if(e.getSource()==nandbutton) 
         {
-			System.out.println("choice 4");
-			ORbutton.setEnabled(false);
+			System.out.println("Choice 4- NAND implementation");
+			nandbutton.setEnabled(false);
 			System.out.println("NAND chosen");
-		}	
-		if(e.getSource()==NORbutton) 
+		}
+		if(e.getSource()==norbutton) 
         {
-			System.out.println("choice 5");
-			ORbutton.setEnabled(false);
+			System.out.println("Choice 5- NOR implementation");
+			norbutton.setEnabled(false);
 			System.out.println("NOR chosen");
-		}	
-		if(e.getSource()==XORbutton) 
+		}
+		if(e.getSource()==exorbutton) 
         {
-			System.out.println("choice 6");
-			ORbutton.setEnabled(false);
-			System.out.println("NOR chosen");
-		}	
-	}
-
-        
+			System.out.println("Choice 6- EXOR implementation");
+			exorbutton.setEnabled(false);
+			System.out.println("EXOR chosen");
+		}
+	}    
 }
-
 
