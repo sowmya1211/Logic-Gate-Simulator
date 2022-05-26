@@ -12,6 +12,6 @@
   
   
 ____
-<h> This was a mini project for programming with JAVA course in the 3rd semester.</h>
+<h> This was a mini project for a Programming with JAVA course in the 3rd semester.</h>
   
 
