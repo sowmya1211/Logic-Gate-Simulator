@@ -8,6 +8,10 @@
   <li> Input the required pin numbers and values</li>
   <li> Output is computed and displayed </li>
 </ul>
+
+### Sample Output
+
+  ![Sample](image.png)
   
   
   
